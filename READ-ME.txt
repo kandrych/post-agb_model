@@ -1,0 +1,167 @@
+AFTER THE GIANT — POST-AGB BINARY EXPLORER
+
+OPEN
+Open post-agb-explorer.html in a modern browser. No installation, server, internet
+connection or external libraries are needed. Refresh an already-open tab after updates.
+
+EXPLORE
+Drag or use arrow keys to rotate; scroll or use + / - to zoom.
+Auto-rotate changes camera azimuth; Animate flow shows schematic orbital motion,
+inward gas feeding and companion outflows. View presets include a binary close-up.
+Cutaway removes a viewing wedge, not physical material.
+
+DUST AND SCATTERING
+Show smooth grain layers displays overlapping, axisymmetric population envelopes:
+small grains in the upper disk layers, intermediate grains at intermediate heights,
+and larger grains concentrated toward the mid-plane and optionally toward the inner rim.
+Settling and inner concentration controls change these representative distributions.
+Sparse grain examples is optional and initially off. These symbols are exaggerated
+samples, not individual resolved grains or a density map; unmarked regions contain dust.
+The polarimetric highlight is the small-grain-bearing disk surface itself. A few surface
+markers sit exactly on that layer. There is no detached scattering shell above the dust.
+Hiding the small-grain population also hides its scattering highlight. Display switches
+hide representations; they do not physically remove dust from the SED opacity model.
+Scattering requires dust and illumination. The adopted surface is an approximate
+optical-depth layer, not a solved radiative-transfer surface. Approximate surface illumination uses central-ray attenuation; angular shading uses
+a prescribed intensity phase function times a polarization factor. These are not
+grain-specific scattering calculations or a solved optical-depth surface. There are no imposed dust spirals or clumps.
+
+GEOMETRY AND GAS
+Edit representative geometry changes dust cavity size, rim puffing, surface height,
+outer flaring and jet angle. Flaring beta = 1 means constant H/r; larger values open the
+outer disk while holding the local dust-rim height fixed. Puffing raises the rim locally.
+Inner dust-poor gas enables a reservoir interior to the dust rim and schematic feeding
+of both the primary and the companion disk. The two branches can be hidden separately.
+Inspect gas feeding selects a close-up; Animate flow moves particles inward.
+Stream paths and rates are illustrative, not hydrodynamic trajectories. Particle counts
+encode neither accretion fractions nor jet ejection efficiency. The companion is a faint
+main-sequence star, with a muted non-glowing marker, not a specified brown dwarf.
+
+TWO-COMPONENT LIVE SED
+Gold: attenuated direct light from the post-AGB primary.
+Orange: continuous-temperature thermal disk emission.
+The white curve is the sum of these two components, not a third physical component.
+There is no blue scattered-light curve, no
+scattering term in the sum, and no companion component. This is a deliberate simplified
+SED, not a claim that scattered light is negligible in every system or orientation.
+The primary is an illustrative 6500 K blackbody. Thermal disk emission integrates
+120 contiguous area-weighted blackbody annuli, with T = 1500 K (r/Rin)^(-0.65), to 400 Rin.
+Spectral radius ratios map logarithmically onto the displayed dust interval; the scene
+remains a compressed schematic without a uniform AU scale. Relative stellar heating,
+cavity size and attenuated surface illumination modify the prescribed temperatures.
+A diffuse-heating floor is assumed, not solved by radiative equilibrium.
+A shared small-/large-grain Gaussian density and wavelength-dependent opacities
+attenuate the primary. Settling preserves each population column mass. Inner
+concentration modifies the large-grain radial density. The same vertically integrated
+columns and opacity laws set approximate thermal emissivity.
+The thermal disk uses a prescribed inclination-dependent projected-area factor.
+Both curves share the same normalization: the peak of their SUM is one at each angle.
+The log-flux axis displays faint tails; values below 1e-5 lie outside the plotted range.
+The unobscured SED has a stellar peak and one broad infrared excess. Strong obscuration
+may suppress the stellar peak; two visible maxima are not forced at every orientation.
+Sweep inclination demonstrates face-on to edge-on viewing, not physical precession.
+Cutaway, zoom and display visibility do not change the obscuring dust. Display switches only hide representations. Physical settling/concentration and
+geometry controls now affect obscuration and approximate illumination; relative
+stellar heating and cavity size also change the prescribed temperature profile.
+There is no self-consistent energy balance or radiative-transfer solution.
+
+SAVE & EDIT
+Save image exports the scene as PNG with a scientific scale note.
+Record 10 s captures the canvas only, not the SED or panels; format depends on browser.
+Save settings exports JSON; Load settings restores it.
+Save HTML exports a self-contained copy with current settings embedded.
+Edit the HTML directly in a text editor; no build step is required.
+MODEL contains display geometry; TECHNIQUES contains labels and descriptions;
+SED_MODEL contains the illustrative spectral parameters; defaults contains initial controls.
+Saved HTML copies use the saved-state JSON block to override defaults. Set it to null
+to use edited defaults. All spatial scales and velocities are schematic; no AU scale applies.
+
+SCIENTIFIC BASIS
+See Science & references for linked papers. Post-AGB sources include Andrych et al.
+(2023, 2024), Corporaal et al. (2023), Bollen et al. (2020, 2022), Verhamme et al. (2024),
+De Prins et al. (2024), Kluska et al. (2022), Mohorian et al. (2025), and others.
+Birnstiel (2024), Dust Growth and Evolution in Protoplanetary Disks, informs the visual
+separation of small-grain scattering layers and settled large grains. Young-star disks
+serve as a physical visualization analogue, not an identical evolutionary model.
+
+VERIFICATION
+JavaScript syntax and code-level rendering/control checks passed, including geometry,
+settings, grain symmetry, dust–scattering co-location, coupled visibility, sparse/smooth
+modes, two-component SED arithmetic, continuous dust emission and normalization.
+Browser preview was blocked by the execution environment. Current visual appearance,
+exported files and browser-specific video recording have not been verified in a live browser.
+
+GRAIN EXTENT & INDEPENDENT MARKERS
+Large grains extend to MODEL.outer, the same outer boundary used by the millimetre
+continuum layer. Inner concentration changes spacing, not that boundary.
+Show grain markers works with smooth layers disabled. Grains only hides the context
+disk, tracer overlays, smooth population envelopes, inner gas and jets, leaving the
+stars and representative grain markers. The individual grain-size switches still apply.
+
+NON-RT UPGRADE
+Default: one surface tracer on a translucent neutral context disk. Opaque disk mode
+has been removed. Continuous annular bands replace radial mesh wedges to reduce
+rendering seams. Transparency is a display aid, not physical optical depth.
+Depth ordering is approximate; it is not a full volume renderer.
+Binary inset is independently enlarged, shares orbital phase and camera orientation,
+and is an orientation diagram, not an apparent-brightness image.
+Scattering-angle shading can be switched off. It changes brightness, never dust density.
+Relative stellar heating is in Edit representative geometry.
+Central illumination uses a barycentric source approximation; primary obscuration
+uses its actual displayed orbital position. This distinction is deliberate and approximate.
+No exact RT, hydrostatic equilibrium, grain-specific opacities, thermal energy balance,
+resolved instrument response or target-specific fitting is claimed.
+New code checks cover column conservation under settling, temperature response to
+heating, rim attenuation, spectral-cache updates, opacity modes and saved settings.
+
+VISIBILITY CONTROLS
+Show/Hide binary detail beside the camera presets toggles the inset; the sidebar
+Binary detail inset checkbox controls the same saved setting.
+Both star markers are fully opaque and drawn over the disk at every viewing angle.
+These are orientation annotations, not apparent-brightness predictions. The primary
+remains larger/brighter than the companion; SED attenuation remains active.
+The polarimetric overlay is display-enhanced for readability. Relative shadow/angle
+shading remains, but displayed intensity is not calibrated polarized flux.
+
+PRESENTATION VIEWS
+Whole disk: complete, uncut neutral disk without observational overlays. This is
+a physical schematic, not an observed image or true-colour reconstruction.
+Probe layers: same physical geometry, cutaway enabled, with technique highlights.
+Use Focus beside a technique to isolate its approximate sensitivity region.
+Accretion: dedicated close-up with muted tapered supply ribbons and one inward
+arrow per branch. Animate flow adds a short moving highlight; dense stream
+particles have been removed. These supply routes are illustrative, not recovered
+trajectories, and do not imply a measured division of the accretion rate.
+Companion accretion disk: independently show/hide its mesh and label in the main
+view and the inset. Jets and supply ribbons retain their own display switches.
+The Whole disk and Probe layers presets change presentation settings, not
+physical cavity size, disk height, flaring, settling or spectral parameters.
+
+WHOLE-DISK MATERIAL
+Whole disk now uses a warm inner rim grading smoothly to muted brown-grey outer
+dust, a darker underside and a more solid silhouette. Whole-disk opacity adjusts
+this view independently of technique overlays and physical SED attenuation.
+Colours remain illustrative; this is not a calibrated visible-light image.
+
+COLOUR SEPARATION
+The whole disk uses muted copper-red and reddish-brown shading; the primary marker
+is warm white in both the main scene and binary inset. Disk colours are illustrative
+and do not encode a measured temperature or a true-colour photograph.
+
+EDGE-ON BODY
+The whole-disk view now includes nested, vertically tapered volume shells rather
+than only upper/lower surfaces. Their accumulated opacity keeps the edge-on disk
+substantial, while radial and vertical taper soften its boundary. This is a display
+approximation, not a new RT solver, and does not change the SED.
+The central cavity remains open; star markers are deliberately drawn in front.
+
+CONNECTED SURFACE
+The whole-disk body now retains opacity up to its boundary, shares the surface
+colour prescription and overlaps the surface slightly to avoid rendering cracks.
+The outer radial fade is retained. This display change leaves the SED unchanged.
+
+STELLAR VISIBILITY BY VIEW
+Whole disk: both stars are attenuated by their individual dust columns toward
+the camera and can be hidden by the edge-on disk. They are not foreground markers.
+Probe layers: both stars remain visible as explanatory foreground markers.
+The optional binary inset remains an unattenuated orientation diagram.
